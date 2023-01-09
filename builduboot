@@ -1,0 +1,12 @@
+source /opt/st/myir/3.1-snapshot/environment-setup-cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi
+
+cp ./Makefile.sdk ../
+
+make stm32mp15_trusted_defconfig
+
+make DEVICE_TREE=stm32mp157c-ya157c-512d-v2 all
+#make DEVICE_TREE=stm32mp157c-ya157c-512d-v1 all
+
+make mrproper
+make -f $PWD/../Makefile.sdk all
+
